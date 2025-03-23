@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyHashMap<K, V> {
+
     private static final int INITIAL_CAPACITY = 5; //initial capacity of the bucket
 
     private List<MyNode<K, V>> bucket; //bucket array i.e. array of linked list
