@@ -5,9 +5,13 @@ import java.util.List;
 
 public class MyHashMap<K, V> {
     private static final int INITIAL_CAPACITY = 5; //initial capacity of the bucket
+
     private List<MyNode<K, V>> bucket; //bucket array i.e. array of linked list
+
     private int capacity; //capacity of the bucket
+
     private int size; //number of elements in the map or the total number of nodes present.
+
     private static class MyNode<K, V> { //class to store key value pairs.
         private final K key;
         private V value;
