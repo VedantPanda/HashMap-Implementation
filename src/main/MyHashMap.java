@@ -5,11 +5,11 @@ import java.util.List;
 
 public class MyHashMap<K, V> {
 
-    private static final int INITIAL_CAPACITY = 5; //initial capacity of the bucket
+    private static final int INITIAL_CAPACITY = 5; //initial capacity of the bucket.
 
-    private List<MyNode<K, V>> bucket; //bucket array i.e. array of linked list
+    private List<MyNode<K, V>> bucket; //bucket array i.e. array of linked list.
 
-    private int capacity; //capacity of the bucket
+    private int capacity; //capacity of the bucket.
 
     private int size; //number of elements in the map or the total number of nodes present.
 
@@ -23,7 +23,7 @@ public class MyHashMap<K, V> {
         }
     }
 
-    public MyHashMap(){ //constructor
+    public MyHashMap(){ //constructor.
         bucket = new ArrayList<>();
         capacity = INITIAL_CAPACITY;
         fillBucketWithCapacity(bucket);
@@ -33,17 +33,17 @@ public class MyHashMap<K, V> {
         int bucketIndex = getBucketIndex(key);
         MyNode<K, V> head = bucket.get(bucketIndex);
         while (head!=null){
-            if(head.key.equals(key)){
+            if(head.key.equals(key)){ //updates the value if the key is already present.
                 head.value = value;
                 return;
             }
             head = head.next;
         }
-        size++;
-        MyNode<K, V> newNode = new MyNode<>(key, value);
+        size++; //increasing the number of nodes or keys.
+        MyNode<K, V> newNode = new MyNode<>(key, value); //inserts the new key at the beginning of the linked list.
         head = bucket.get(bucketIndex);
         newNode.next = head;
-        bucket.set(bucketIndex, newNode);
+        bucket.set(bucketIndex, newNode); //setting the new head at the index of the list.
         double loadFactor = (1.0*size) / capacity;
         System.out.println("Load Factor is "+loadFactor);
         if(loadFactor > 0.7){
